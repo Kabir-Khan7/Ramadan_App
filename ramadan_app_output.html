@@ -583,6 +583,227 @@
     .profile-signature .param { color: #e5c07b; }
     .profile-signature .type  { color: #56b6c2; }
     .profile-signature .def   { color: #98c379; }
+
+    /* ═══════════════════════════════════════
+       DAY 5 — REACT CARD PROP MERGER WIDGET
+    ════════════════════════════════════════ */
+    .merger-section {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 700px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+      animation: fadeSlideDown .8s 1.4s ease both;
+    }
+    .merger-section__label {
+      text-align: center;
+      font-size: .7rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.5rem; opacity: .8;
+    }
+    .merger-panel {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex; flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* React badge */
+    .react-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(97,218,251,.08);
+      border: 1px solid rgba(97,218,251,.25);
+      border-radius: 4px;
+      padding: .3rem .8rem;
+      font-size: .68rem; letter-spacing: .08em;
+      color: #61dafb;
+    }
+    .react-dot {
+      width: 8px; height: 8px;
+      background: #61dafb;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: reactSpin 3s linear infinite;
+    }
+    @keyframes reactSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* JS signature */
+    .merger-signature {
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 6px;
+      padding: .7rem 1rem;
+      font-size: .72rem;
+      color: rgba(245,240,232,.3);
+      font-family: 'Courier New', monospace;
+      letter-spacing: .02em;
+      text-align: center;
+    }
+    .merger-signature .kw  { color: #c678dd; }
+    .merger-signature .fn  { color: #61afef; }
+    .merger-signature .param { color: #e5c07b; }
+    .merger-signature .spread { color: #61dafb; }
+    .merger-signature .type  { color: #56b6c2; }
+
+    /* Two-column prop editors */
+    .prop-editors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 520px) {
+      .prop-editors { grid-template-columns: 1fr; }
+    }
+    .prop-editor {
+      background: rgba(0,0,0,.2);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px;
+      padding: 1rem;
+      display: flex; flex-direction: column;
+      gap: .75rem;
+    }
+    .prop-editor__title {
+      font-size: .68rem; letter-spacing: .15em;
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .prop-editor__title.defaults { color: rgba(245,240,232,.45); }
+    .prop-editor__title.custom   { color: #61dafb; }
+    .prop-editor__title .badge-pill {
+      font-size: .58rem; padding: .15rem .5rem;
+      border-radius: 10px; letter-spacing: .05em;
+    }
+    .prop-editor__title.defaults .badge-pill {
+      background: rgba(255,255,255,.06);
+      color: rgba(245,240,232,.3);
+    }
+    .prop-editor__title.custom .badge-pill {
+      background: rgba(97,218,251,.1);
+      color: #61dafb;
+    }
+
+    /* Individual prop rows */
+    .prop-row {
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .prop-row input {
+      flex: 1; min-width: 0;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 5px;
+      color: var(--white);
+      font-family: 'Courier New', monospace;
+      font-size: .78rem;
+      padding: .4rem .6rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .prop-row input.key-input {
+      max-width: 90px;
+      color: #e5c07b;
+    }
+    .prop-row input.val-input {
+      color: #98c379;
+    }
+    .prop-row input:focus {
+      border-color: rgba(201,168,76,.4);
+    }
+    .prop-row .colon {
+      color: rgba(245,240,232,.25);
+      font-family: monospace;
+      font-size: .8rem;
+      flex-shrink: 0;
+    }
+    .prop-row .del-btn {
+      background: transparent;
+      border: 1px solid rgba(255,100,100,.2);
+      border-radius: 4px;
+      color: rgba(255,100,100,.4);
+      font-size: .75rem;
+      width: 22px; height: 22px;
+      cursor: pointer; flex-shrink: 0;
+      transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prop-row .del-btn:hover {
+      border-color: rgba(255,100,100,.6);
+      color: rgba(255,130,130,.8);
+    }
+    .add-prop-btn {
+      background: transparent;
+      border: 1px dashed rgba(255,255,255,.12);
+      border-radius: 5px;
+      color: rgba(245,240,232,.25);
+      font-family: 'Lato', sans-serif;
+      font-size: .7rem; letter-spacing: .08em;
+      padding: .4rem;
+      cursor: pointer; width: 100%;
+      transition: all .2s;
+    }
+    .add-prop-btn:hover {
+      border-color: rgba(201,168,76,.3);
+      color: rgba(201,168,76,.6);
+    }
+
+    /* Arrow between columns */
+    .merge-arrow {
+      display: flex; align-items: center;
+      justify-content: center;
+      color: var(--gold); font-size: 1.2rem;
+      opacity: .5;
+      padding: .5rem 0;
+    }
+    @media (min-width: 521px) {
+      .prop-editors { position: relative; }
+      .merge-arrow  { display: none; }
+    }
+
+    /* Result output */
+    .merger-result-wrap {
+      display: flex; flex-direction: column; gap: .6rem;
+    }
+    .merger-result-label {
+      font-size: .68rem; letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,.3);
+    }
+    .merger-result {
+      background: rgba(0,0,0,.3);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      font-family: 'Courier New', monospace;
+      font-size: .82rem;
+      line-height: 1.7;
+      min-height: 60px;
+    }
+    .res-brace  { color: rgba(245,240,232,.4); }
+    .res-key    { color: #e5c07b; }
+    .res-colon  { color: rgba(245,240,232,.25); }
+    .res-val    { color: #98c379; }
+    .res-origin-default { color: rgba(245,240,232,.3); font-size:.65rem; margin-left:.4rem; }
+    .res-origin-custom  { color: rgba(97,218,251,.5);  font-size:.65rem; margin-left:.4rem; }
+    .res-overridden     { color: rgba(97,218,251,.8);  }
+
+    /* Legend */
+    .merger-legend {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      font-size: .65rem; letter-spacing: .06em;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: .35rem;
+      color: rgba(245,240,232,.35);
+    }
+    .legend-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    }
+    .legend-dot.default { background: rgba(245,240,232,.3); }
+    .legend-dot.custom  { background: #61dafb; }
+    .legend-dot.override { background: #61dafb; }
   </style>
 </head>
 <body>
@@ -751,6 +972,82 @@
             <div class="profile-output default-role" id="profileOutput">
               <span id="profileNamePart">Name</span>
               <span class="role-part"> (Student)</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── Card Prop Merger Widget (Day 5) ── -->
+      <section class="merger-section" id="card-merger" aria-label="React Card Prop Merger">
+        <p class="merger-section__label">✦ React Card Prop Merger ✦</p>
+
+        <div class="merger-panel">
+
+          <!-- Header row -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem;">
+            <span style="font-size:.75rem; color:rgba(245,240,232,.4); letter-spacing:.05em;">
+              Object Spread Merge Demo
+            </span>
+            <span class="react-badge">
+              <span class="react-dot"></span>
+              React Props
+            </span>
+          </div>
+
+          <!-- JS function signature -->
+          <div class="merger-signature" aria-label="JavaScript function signature">
+            <span class="kw">function</span>
+            <span class="fn"> mergeCardProps</span>(<span class="param">defaults</span>,
+            <span class="param"> custom</span> = <span class="spread">{}</span>)
+            { <span class="kw">return</span>
+            { <span class="spread">...defaults, ...custom</span> }; }
+          </div>
+
+          <!-- Live prop editors -->
+          <div class="prop-editors">
+
+            <!-- Defaults column -->
+            <div class="prop-editor" id="defaultsEditor">
+              <div class="prop-editor__title defaults">
+                defaults
+                <span class="badge-pill">base props</span>
+              </div>
+              <!-- rows injected by JS -->
+            </div>
+
+            <!-- Custom column -->
+            <div class="prop-editor" id="customEditor">
+              <div class="prop-editor__title custom">
+                custom
+                <span class="badge-pill">overrides</span>
+              </div>
+              <!-- rows injected by JS -->
+            </div>
+
+          </div>
+
+          <!-- Mobile arrow -->
+          <div class="merge-arrow" aria-hidden="true">⬇ mergeCardProps() ⬇</div>
+
+          <!-- Live result -->
+          <div class="merger-result-wrap">
+            <span class="merger-result-label">→ mergeCardProps(defaults, custom) returns</span>
+            <div class="merger-result" id="mergerResult" aria-live="polite">
+              <!-- filled by JS -->
+            </div>
+          </div>
+
+          <!-- Legend -->
+          <div class="merger-legend">
+            <div class="legend-item">
+              <span class="legend-dot default"></span> from defaults
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot custom"></span> from custom (added)
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot override"></span> custom overrides default
             </div>
           </div>
 
@@ -1013,6 +1310,157 @@
     // Seed with demo values
     nameInput.value = "Ali Hassan";
     updateProfile();
+  </script>
+
+  <!-- ════════════════════════════════════════════
+       DAY 5 — mergeCardProps  (React / JavaScript)
+  ═════════════════════════════════════════════ -->
+  <script>
+    // ─────────────────────────────────────────────
+    //  mergeCardProps
+    //  React pattern: merges default and custom props.
+    //  Custom values ALWAYS override defaults.
+    //
+    //  @param {Object} defaults  - base component props
+    //  @param {Object} custom    - user overrides (default: empty object)
+    //  @returns {Object}         - new merged object, originals untouched
+    //
+    //  Core: { ...defaults, ...custom }
+    //  Later keys win → custom always beats defaults on collision
+    // ─────────────────────────────────────────────
+    function mergeCardProps(defaults = {}, custom = {}) {
+      return { ...defaults, ...custom };        // ← the entire logic, one line
+    }
+
+    // ── State: editable prop arrays ──
+    let defaultProps = [
+      { key: "theme",    val: "light"  },
+      { key: "size",     val: "md"     },
+      { key: "bordered", val: "true"   },
+      { key: "rounded",  val: "false"  },
+    ];
+    let customProps = [
+      { key: "theme",    val: "dark"   },
+      { key: "label",    val: "Click me" },
+    ];
+
+    // ── Render a prop editor column ──
+    function renderEditor(containerId, propsArr, colorClass) {
+      const container = document.getElementById(containerId);
+      // Keep the title div, rebuild rows after it
+      const titleDiv  = container.querySelector(`.prop-editor__title`);
+      container.innerHTML = "";
+      container.appendChild(titleDiv);
+
+      propsArr.forEach((prop, i) => {
+        const row = document.createElement("div");
+        row.className = "prop-row";
+        row.innerHTML = `
+          <input class="key-input" type="text"
+                 placeholder="key"
+                 value="${prop.key}"
+                 data-index="${i}" data-field="key"
+                 data-src="${containerId}" />
+          <span class="colon">:</span>
+          <input class="val-input" type="text"
+                 placeholder="value"
+                 value="${prop.val}"
+                 data-index="${i}" data-field="val"
+                 data-src="${containerId}" />
+          <button class="del-btn"
+                  data-index="${i}"
+                  data-src="${containerId}"
+                  aria-label="Remove prop">✕</button>
+        `;
+        container.appendChild(row);
+      });
+
+      // Add-row button
+      const addBtn = document.createElement("button");
+      addBtn.className = "add-prop-btn";
+      addBtn.textContent = "+ add prop";
+      addBtn.dataset.src = containerId;
+      container.appendChild(addBtn);
+    }
+
+    // ── Render result box ──
+    function renderResult() {
+      // Build plain objects from state arrays
+      const defObj = Object.fromEntries(defaultProps.map(p => [p.key, p.val]));
+      const cusObj = Object.fromEntries(customProps.map(p  => [p.key, p.val]));
+
+      const merged = mergeCardProps(defObj, cusObj);   // ← Day 5 function
+
+      const lines = Object.entries(merged).map(([k, v]) => {
+        const inDefault = k in defObj;
+        const inCustom  = k in cusObj;
+        const overridden = inDefault && inCustom;
+        const onlyCustom = !inDefault && inCustom;
+
+        let keyHtml = `<span class="res-key">${k}</span>`;
+        let valHtml = `<span class="res-val ${overridden || onlyCustom ? 'res-overridden' : ''}">"${v}"</span>`;
+        let originHtml = "";
+        if (overridden)  originHtml = `<span class="res-origin-custom">← custom overrides</span>`;
+        else if (onlyCustom) originHtml = `<span class="res-origin-custom">← from custom</span>`;
+        else             originHtml = `<span class="res-origin-default">← from defaults</span>`;
+
+        return `  ${keyHtml}<span class="res-colon">: </span>${valHtml}${originHtml}`;
+      });
+
+      document.getElementById("mergerResult").innerHTML =
+        `<span class="res-brace">{</span><br>` +
+        lines.join(",<br>") +
+        `<br><span class="res-brace">}</span>`;
+    }
+
+    // ── Full re-render ──
+    function renderAll() {
+      renderEditor("defaultsEditor", defaultProps, "defaults");
+      renderEditor("customEditor",   customProps,  "custom");
+      renderResult();
+      attachListeners();
+    }
+
+    // ── Event delegation ──
+    function attachListeners() {
+      ["defaultsEditor","customEditor"].forEach(id => {
+        const el = document.getElementById(id);
+
+        // Input changes
+        el.querySelectorAll("input").forEach(inp => {
+          inp.addEventListener("input", e => {
+            const { index, field, src } = e.target.dataset;
+            const arr = src === "defaultsEditor" ? defaultProps : customProps;
+            arr[+index][field] = e.target.value;
+            renderResult();
+          });
+        });
+
+        // Delete buttons
+        el.querySelectorAll(".del-btn").forEach(btn => {
+          btn.addEventListener("click", e => {
+            const { index, src } = e.target.dataset;
+            if (src === "defaultsEditor") defaultProps.splice(+index, 1);
+            else                          customProps.splice(+index, 1);
+            renderAll();
+          });
+        });
+
+        // Add-prop button
+        const addBtn = el.querySelector(".add-prop-btn");
+        if (addBtn) {
+          addBtn.addEventListener("click", e => {
+            const src = e.target.dataset.src;
+            if (src === "defaultsEditor") defaultProps.push({ key: "", val: "" });
+            else                          customProps.push({ key: "", val: "" });
+            renderAll();
+          });
+        }
+      });
+    }
+
+    // ── Bootstrap ──
+    renderAll();
   </script>
 
 </body>
