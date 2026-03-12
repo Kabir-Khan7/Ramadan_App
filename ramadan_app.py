@@ -1821,3 +1821,6 @@ if __name__ == "__main__":
     print(f"✅ Combined app generated → ramadan_app_output.html")
     print(f"   Characters : {len(html_output)}")
     print(f"   Open the HTML file in your browser to see the full app!")
+    print(f"   (Note: The app includes interactive widgets for each of the 4 functions, plus test results in the console.)")
+    
+    
